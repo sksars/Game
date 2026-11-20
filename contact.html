@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us — PlayGrid Arcade</title>
+    <meta
+      name="description"
+      content="Contact the PlayGrid Arcade editorial team for bug reports, game suggestions, privacy questions, or copyright inquiries."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Outfit:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="./index.html" class="brand-wordmark">PlayGrid</a>
+        <nav class="nav-links" aria-label="Primary Navigation">
+          <a href="./index.html" class="nav-link">Games</a>
+          <a href="./about.html" class="nav-link">About</a>
+          <a href="./privacy.html" class="nav-link">Privacy</a>
+          <a href="./terms.html" class="nav-link">Terms</a>
+          <a href="./contact.html" class="nav-link active">Contact</a>
+        </nav>
+        <div class="header-actions">
+          <a href="./index.html" class="btn btn-primary">Play Games</a>
+          <button type="button" id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle Menu" aria-expanded="false">☰</button>
+        </div>
+      </div>
+    </header>
+
+    <div id="mobile-drawer" class="mobile-drawer">
+      <a href="./index.html">All 32 Games</a>
+      <a href="./about.html">About PlayGrid</a>
+      <a href="./privacy.html">Privacy Policy</a>
+      <a href="./terms.html">Terms of Service</a>
+      <a href="./disclaimer.html">Disclaimer</a>
+      <a href="./contact.html">Contact Us</a>
+    </div>
+
+    <main class="container">
+      <article class="legal-article">
+        <h1>Contact Us</h1>
+        <p>
+          Have feedback about mobile controls, found a bug in one of our 32 games, or need to reach us regarding privacy
+          or advertising inquiries? Use the form below or email our support desk directly.
+        </p>
+
+        <p><strong>Editorial &amp; Support Email:</strong> support@playgrid-arcade.example</p>
+
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="form-field">
+            <label for="contact-name">Your Name</label>
+            <input type="text" id="contact-name" name="name" placeholder="Enter your name" required />
+          </div>
+
+          <div class="form-field">
+            <label for="contact-email">Email Address</label>
+            <input type="email" id="contact-email" name="email" placeholder="you@example.com" required />
+          </div>
+
+          <div class="form-field">
+            <label for="contact-topic">Topic</label>
+            <select id="contact-topic" name="topic">
+              <option value="feedback">Game Feedback or Suggestion</option>
+              <option value="bug">Report a Game Bug</option>
+              <option value="privacy">Privacy or Cookie Inquiry</option>
+              <option value="business">Advertising &amp; Partnerships</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" rows="5" placeholder="Describe your question or feedback..." required></textarea>
+          </div>
+
+          <div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </div>
+          <p id="contact-status" role="status" aria-live="polite" style="font-weight:600;"></p>
+        </form>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-bottom">
+        <span>© 2026 PlayGrid Arcade. All rights reserved.</span>
+        <span>
+          <a href="./about.html">About</a> · <a href="./privacy.html">Privacy</a> · <a href="./terms.html">Terms</a> · <a href="./disclaimer.html">Disclaimer</a>
+        </span>
+      </div>
+    </footer>
+    <script src="./js/shared-ui.js"></script>
+  </body>
+</html>

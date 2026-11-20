@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PlayGrid Arcade — 32 Instant HTML5 Browser Games</title>
+    <meta
+      name="description"
+      content="Play 32 original HTML5 arcade, puzzle, board, word, and reflex games right in your browser with mobile touch controls and local high scores."
+    />
+    <meta property="og:title" content="PlayGrid Arcade — 32 Instant HTML5 Browser Games" />
+    <meta
+      property="og:description"
+      content="Instant-play HTML5 browser game hub featuring 32 original arcade, puzzle, board, word, and reflex games with mobile-friendly touch controls."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Outfit:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="./index.html" class="brand-wordmark" data-hub-nav="games">PlayGrid</a>
+
+        <nav class="nav-links" aria-label="Primary Navigation">
+          <a href="#catalog" class="nav-link active" data-hub-nav="games">Games</a>
+          <a href="#catalog" class="nav-link" data-hub-nav="favorites">Favorites</a>
+          <a href="./about.html" class="nav-link">About</a>
+          <a href="./privacy.html" class="nav-link">Privacy</a>
+          <a href="./contact.html" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+          <button type="button" id="random-game-btn" class="btn btn-primary">Random Game</button>
+          <button
+            type="button"
+            id="mobile-menu-btn"
+            class="mobile-menu-btn"
+            aria-label="Toggle Menu"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div id="mobile-drawer" class="mobile-drawer" aria-label="Mobile Navigation">
+      <a href="#catalog" data-hub-nav="games">All 32 Games</a>
+      <a href="#catalog" data-hub-nav="favorites">Saved Favorites</a>
+      <a href="./about.html">About PlayGrid</a>
+      <a href="./privacy.html">Privacy Policy</a>
+      <a href="./terms.html">Terms of Service</a>
+      <a href="./disclaimer.html">Disclaimer</a>
+      <a href="./contact.html">Contact Us</a>
+    </div>
+
+    <main class="container">
+      <!-- HUB CATALOG VIEW -->
+      <section id="hub-view" class="hub-view-shell">
+        <section class="hero-grid" aria-label="Featured Arcade Overview">
+          <div class="hero-copy">
+            <span class="hero-kicker">Instant Browser Play · Mobile &amp; Desktop Ready</span>
+            <h1 class="hero-title">32 Original HTML5 Games in One Clean Arcade</h1>
+            <p class="hero-desc">
+              Launch crisp arcade classics, logic puzzles, strategy board games, and fast reflex drills directly in your
+              browser. Zero installs, responsive touch controls, and local high-score tracking.
+            </p>
+            <div class="hero-cta-row">
+              <a href="#catalog" class="btn btn-primary">Browse All Games</a>
+              <a href="./about.html" class="btn btn-secondary">How It Works</a>
+            </div>
+            <div class="hero-stats">
+              <div class="stat-item">
+                <span class="stat-value tabular-nums" id="stat-games-count">32</span>
+                <span class="stat-label">Playable Games</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value tabular-nums" id="stat-plays-count">0</span>
+                <span class="stat-label">Sessions Played</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value tabular-nums" id="stat-fav-count">0</span>
+                <span class="stat-label">Saved Favorites</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-media">
+            <img
+              src="./src/assets/images/hero_arcade_desk_1795151764600.jpg"
+              alt="Handheld retro console, chess pieces, playing cards, tangram tiles, and polyhedral dice on a clean studio desk"
+              referrerpolicy="no-referrer"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+            />
+            <div class="media-fallback">PlayGrid Arcade · 32 Instant HTML5 Games</div>
+          </div>
+        </section>
+
+        <!-- Catalog Filter & Utilities Toolbar -->
+        <section id="catalog" aria-label="Game Filters">
+          <div class="catalog-toolbar">
+            <div id="filter-tabs" class="filter-tabs" role="tablist" aria-label="Game Categories"></div>
+
+            <div class="toolbar-utilities">
+              <div class="search-input-wrap">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input
+                  type="search"
+                  id="search-input"
+                  class="search-input"
+                  placeholder="Search games or controls..."
+                  aria-label="Search games"
+                />
+              </div>
+              <button type="button" id="mute-toggle" class="icon-toggle-btn">Sound: On</button>
+              <button type="button" id="theme-toggle" class="icon-toggle-btn">Dark Mode</button>
+            </div>
+          </div>
+
+          <div class="section-header">
+            <h2 class="section-title">Game Library</h2>
+            <span id="games-count" class="section-count tabular-nums">32 games available</span>
+          </div>
+
+          <div id="games-grid" class="games-grid"></div>
+        </section>
+
+        <!-- AdSense Policy-Compliant Banner Container (Well separated from controls) -->
+        <aside class="ad-slot-wrapper" aria-label="Advertisement">
+          <span class="ad-label">Advertisement</span>
+          <div class="ad-slot-box">
+            Responsive Leaderboard Ad Container (728×90 Desktop / 320×100 Mobile) — Insert Google AdSense &lt;ins class="adsbygoogle"&gt; code here before publishing.
+          </div>
+        </aside>
+
+        <!-- Editorial Category Highlights -->
+        <section class="editorial-split" aria-label="Curated Collections">
+          <article class="editorial-card">
+            <div class="editorial-card-media">
+              <img
+                src="./src/assets/images/category_puzzle_art_1795151765160.jpg"
+                alt="Wooden puzzle blocks and numbered sliding tiles"
+                referrerpolicy="no-referrer"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+              />
+              <div class="media-fallback">Logic &amp; Number Puzzles</div>
+            </div>
+            <div class="editorial-card-body">
+              <h3>Logic &amp; Spatial Puzzles</h3>
+              <p>
+                Sharpen pattern recognition with 2048 Slide, Sudoku Mini, Minesweeper, Pipe Connect, Lights Out, and
+                guaranteed-solvable Sliding 15 boards tailored for calm focus on phone or desktop.
+              </p>
+            </div>
+          </article>
+
+          <article class="editorial-card">
+            <div class="editorial-card-media">
+              <img
+                src="./src/assets/images/category_board_art_1795151765435.jpg"
+                alt="Classic playing cards and wooden checkers pieces on green felt"
+                referrerpolicy="no-referrer"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+              />
+              <div class="media-fallback">Board &amp; Card Strategy</div>
+            </div>
+            <div class="editorial-card-body">
+              <h3>Classic Board &amp; Card Tables</h3>
+              <p>
+                Challenge built-in Minimax and heuristic AI opponents across Tic-Tac-Toe, Connect Four, Reversi,
+                Checkers, Memory Match, and virtual-points Blackjack with zero real-money wagering.
+              </p>
+            </div>
+          </article>
+        </section>
+
+        <!-- High-Value Editorial Guide for Players & AdSense Quality -->
+        <section class="editorial-guide" aria-label="Platform Guide">
+          <h2>Built for Fast Mobile Play and Clean Browser Performance</h2>
+          <div class="editorial-guide-grid">
+            <div class="editorial-guide-col">
+              <h3>Responsive Touch Ergonomics</h3>
+              <p>
+                Every action and puzzle game supports swipe gestures, direct touch dragging, and an optional on-screen
+                virtual D-Pad with 48px+ targets so mobile sessions feel effortless without accidental page scrolling.
+              </p>
+            </div>
+            <div class="editorial-guide-col">
+              <h3>Zero-Install Pure Web Stack</h3>
+              <p>
+                All 32 games run locally in your browser using lightweight HTML5 Canvas and DOM logic with synthesized
+                Web Audio feedback. Your scores and favorite bookmarks stay private inside local browser storage.
+              </p>
+            </div>
+            <div class="editorial-guide-col">
+              <h3>Family-Friendly &amp; Policy-Safe</h3>
+              <p>
+                PlayGrid Arcade curates clean, original skill, logic, and arcade titles suitable for all ages, backed by
+                transparent Privacy, Terms, and Cookie disclosures with clearly separated ad placements.
+              </p>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- ACTIVE FULL-SCREEN GAME STAGE VIEW -->
+      <section id="game-view" class="game-view-shell" aria-label="Active Game Stage">
+        <div class="game-stage-layout">
+          <div class="game-stage-card">
+            <div class="game-hud">
+              <div class="game-hud-left">
+                <button type="button" id="back-to-hub" class="btn btn-secondary">← Exit</button>
+                <h1 id="hud-title" class="game-hud-title">Game Title</h1>
+              </div>
+
+              <div class="game-hud-metrics">
+                <div class="hud-metric">
+                  <span class="hud-metric-label">Score</span>
+                  <span id="hud-score" class="hud-metric-value tabular-nums">0</span>
+                </div>
+                <div class="hud-metric">
+                  <span class="hud-metric-label">Best</span>
+                  <span id="hud-best" class="hud-metric-value tabular-nums">0</span>
+                </div>
+                <div class="hud-metric">
+                  <span id="hud-meta-label" class="hud-metric-label">Mode</span>
+                  <span id="hud-meta-value" class="hud-metric-value tabular-nums">—</span>
+                </div>
+              </div>
+
+              <div class="game-hud-controls">
+                <button type="button" id="hud-guide-toggle" class="btn btn-secondary">Guide</button>
+                <button type="button" id="hud-touch-toggle" class="btn btn-secondary">Touch Pad</button>
+                <button type="button" id="hud-fav-btn" class="btn btn-secondary">☆ Save</button>
+                <button type="button" id="hud-native-fs" class="btn btn-secondary" title="Toggle Browser Fullscreen">⛶ Full</button>
+                <button type="button" id="hud-restart" class="btn btn-primary">Restart</button>
+              </div>
+            </div>
+
+            <div id="game-stage" class="game-canvas-area"></div>
+
+            <!-- Mobile-Friendly Virtual Controller -->
+            <div id="touch-controls-bar" class="touch-controls-bar" aria-label="Virtual Touch Controller">
+              <div class="dpad-grid" role="group" aria-label="Directional Pad">
+                <div></div>
+                <button type="button" class="pad-btn" data-pad-action="up" aria-label="Move Up">▲</button>
+                <div></div>
+                <button type="button" class="pad-btn" data-pad-action="left" aria-label="Move Left">◀</button>
+                <div></div>
+                <button type="button" class="pad-btn" data-pad-action="right" aria-label="Move Right">▶</button>
+                <div></div>
+                <button type="button" class="pad-btn" data-pad-action="down" aria-label="Move Down">▼</button>
+                <div></div>
+              </div>
+
+              <div class="action-pad">
+                <button type="button" class="action-circle-btn secondary" data-pad-action="restart">Reset</button>
+                <button type="button" id="pad-action" class="action-circle-btn" data-pad-action="action">Action</button>
+              </div>
+            </div>
+          </div>
+
+          <aside id="game-sidebar" class="game-sidebar" aria-label="Game Guide and Info">
+            <div class="sidebar-drawer-header">
+              <strong>Game Guide</strong>
+              <button type="button" id="close-guide-btn" class="btn btn-secondary">Close ✕</button>
+            </div>
+
+            <div class="sidebar-panel">
+              <h3 id="guide-title">How to Play</h3>
+              <p id="guide-desc"></p>
+              <ul id="guide-steps"></ul>
+            </div>
+
+            <div class="sidebar-panel">
+              <h3>Strategy Tip</h3>
+              <p id="guide-tips"></p>
+            </div>
+
+            <div class="sidebar-panel">
+              <h3>More in This Category</h3>
+              <div id="related-games-list" class="related-list"></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <strong class="brand-wordmark">PlayGrid Arcade</strong>
+            <p>
+              An independent HTML5 browser arcade offering 32 original puzzle, arcade, strategy, word, and reflex games
+              built for instant play on desktop and mobile devices.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <ul class="footer-links">
+              <li><a href="./index.html">All 32 Games</a></li>
+              <li><a href="./about.html">About PlayGrid</a></li>
+              <li><a href="./contact.html">Contact &amp; Support</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Policies &amp; Legal</h4>
+            <ul class="footer-links">
+              <li><a href="./privacy.html">Privacy Policy</a></li>
+              <li><a href="./terms.html">Terms of Service</a></li>
+              <li><a href="./disclaimer.html">Ad &amp; Content Disclaimer</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 PlayGrid Arcade. All rights reserved.</span>
+          <span>No downloads · Virtual points only · Browser-local score storage</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Non-intrusive Cookie Consent Bar -->
+    <div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Cookie Preferences">
+      <div class="cookie-inner">
+        <p class="cookie-text">
+          PlayGrid uses local browser storage for high scores and may display third-party advertising cookies (such as
+          Google AdSense) when enabled. Read our <a href="./privacy.html">Privacy Policy</a>.
+        </p>
+        <div class="cookie-actions">
+          <button type="button" id="cookie-essential" class="btn btn-secondary">Essential Only</button>
+          <button type="button" id="cookie-accept" class="btn btn-primary">Accept All</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>
